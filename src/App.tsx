@@ -62,7 +62,8 @@ const HeroSection: React.FC = () => {
   const phrases: string[] = [
     "19 Years Old",
     "Full Stack Developer", 
-    "Rust Enthusiast"
+    "Rust Enthusiast",
+    "I use arch btw"
   ];
   
   const [currentPhrase, setCurrentPhrase] = useState<number>(0);
