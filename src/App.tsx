@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import {
   Github,
-  Mail,
+  //Mail,
   Twitter,
   MessageSquare,
   ExternalLink,
