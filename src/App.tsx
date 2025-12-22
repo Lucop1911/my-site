@@ -154,7 +154,7 @@ const AboutSection: React.FC = () => {
                 <Code2 className="w-8 h-8 text-purple-400" />
               </div>
               <h3 className="about-card-title">Technical Skills</h3>
-              <p className="about-card-text">Rust, C, Javascript, Typescript, Node.js, React, Next.js, Nw.js, Vite, Linux (arch btw), Docker, MySQL/ MariaDB, SQLite</p>
+              <p className="about-card-text">Rust, C, Javascript, Typescript, Node.js, React, Next.js, Nw.js, Vite, Docker, MySQL/ MariaDB, SQLite, Linux (arch btw),</p>
             </div>
             
             <div className="about-card">
@@ -261,7 +261,7 @@ const ContactSection: React.FC = () => {
     { icon: Github, url: "https://github.com/Lucop1911", label: "GitHub", colorClass: "hover-purple" },
     { icon: Twitter, url: "https://x.com/Luca1911_", label: "X", colorClass: "hover-blue" },
     { icon: MessageSquare, url: "https://discord.com/users/luca_1911", label: "Discord", colorClass: "hover-indigo" },
-    { icon: Mail, url: "mailto:your.email@example.com", label: "Email", colorClass: "hover-pink" }
+    //{ icon: Mail, url: "mailto:your.email@example.com", label: "Email", colorClass: "hover-pink" }
   ];
 
   return (
