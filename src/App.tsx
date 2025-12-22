@@ -1,12 +1,36 @@
 import { useState, useEffect } from 'react';
-import { Github, Mail, Twitter, MessageSquare, ExternalLink, Code2, Terminal, Sparkles } from 'lucide-react';
+import {
+  Github,
+  Mail,
+  Twitter,
+  MessageSquare,
+  ExternalLink,
+  Code2,
+  Terminal,
+  Sparkles,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import './App.css';
 
-const Navigation = () => {
-  const [scrolled, setScrolled] = useState(false);
+interface Project {
+  name: string;
+  description: string;
+  github: string;
+  tags: string[];
+}
+
+interface SocialLink {
+  icon: LucideIcon;
+  url: string;
+  label: string;
+  colorClass: string;
+}
+
+const Navigation: React.FC = () => {
+  const [scrolled, setScrolled] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = (): void => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -19,7 +43,7 @@ const Navigation = () => {
         </a>
         
         <div className="nav-links">
-          {['About', 'Projects', 'Contact'].map((item) => (
+          {['About', 'Projects', 'Contact'].map((item: string) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -34,21 +58,21 @@ const Navigation = () => {
   );
 };
 
-const HeroSection = () => {
-  const phrases = [
+const HeroSection: React.FC = () => {
+  const phrases: string[] = [
     "19 Years Old",
     "Full Stack Developer", 
     "Rust Enthusiast"
   ];
   
-  const [currentPhrase, setCurrentPhrase] = useState(0);
-  const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(150);
+  const [currentPhrase, setCurrentPhrase] = useState<number>(0);
+  const [currentText, setCurrentText] = useState<string>('');
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+  const [typingSpeed, setTypingSpeed] = useState<number>(150);
 
   useEffect(() => {
-    const handleTyping = () => {
-      const fullText = phrases[currentPhrase];
+    const handleTyping = (): void => {
+      const fullText: string = phrases[currentPhrase];
       
       if (!isDeleting) {
         setCurrentText(fullText.substring(0, currentText.length + 1));
@@ -68,7 +92,7 @@ const HeroSection = () => {
       }
     };
 
-    const timer = setTimeout(handleTyping, typingSpeed);
+    const timer: ReturnType<typeof setTimeout> = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, currentPhrase, typingSpeed, phrases]);
 
@@ -104,7 +128,7 @@ const HeroSection = () => {
   );
 };
 
-const AboutSection = () => {
+const AboutSection: React.FC = () => {
   return (
     <section id="about" className="section section-bg-gray">
       <div className="section-container">
@@ -129,7 +153,7 @@ const AboutSection = () => {
                 <Code2 className="w-8 h-8 text-purple-400" />
               </div>
               <h3 className="about-card-title">Technical Skills</h3>
-              <p className="about-card-text">Rust, C, Javascript, Typescript, Node.js, React, Next.js, Nw.js, Linux (arch btw), Docker, MySQL/ MariaDB, SQLite</p>
+              <p className="about-card-text">Rust, C, Javascript, Typescript, Node.js, React, Next.js, Nw.js, Vite, Linux (arch btw), Docker, MySQL/ MariaDB, SQLite</p>
             </div>
             
             <div className="about-card">
@@ -147,8 +171,8 @@ const AboutSection = () => {
   );
 };
 
-const ProjectsSection = () => {
-  const projects = [
+const ProjectsSection: React.FC = () => {
+  const projects: Project[] = [
     {
       name: "Rtop",
       description: "The famous linux htop command rewritten in Rust using ratatui library",
@@ -190,7 +214,7 @@ const ProjectsSection = () => {
         </div>
         
         <div className="projects-grid">
-          {projects.map((project, index) => (
+          {projects.map((project: Project, index: number) => (
             <div
               key={index}
               className="project-card animate-fade-in-up"
@@ -217,7 +241,7 @@ const ProjectsSection = () => {
               </p>
               
               <div className="project-tags">
-                {project.tags.map((tag, i) => (
+                {project.tags.map((tag: string, i: number) => (
                   <span key={i} className="project-tag">
                     {tag}
                   </span>
@@ -231,8 +255,8 @@ const ProjectsSection = () => {
   );
 };
 
-const ContactSection = () => {
-  const socialLinks = [
+const ContactSection: React.FC = () => {
+  const socialLinks: SocialLink[] = [
     { icon: Github, url: "https://github.com/Lucop1911", label: "GitHub", colorClass: "hover-purple" },
     { icon: Twitter, url: "https://x.com/Luca1911_", label: "X", colorClass: "hover-blue" },
     { icon: MessageSquare, url: "https://discord.com/users/luca_1911", label: "Discord", colorClass: "hover-indigo" },
@@ -252,7 +276,7 @@ const ContactSection = () => {
         </p>
         
         <div className="social-links">
-          {socialLinks.map((link, index) => (
+          {socialLinks.map((link: SocialLink, index: number) => (
             <a
               key={index}
               href={link.url}
@@ -271,15 +295,15 @@ const ContactSection = () => {
   );
 };
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="footer">
-      <p>© 2024 Your Name. Built with React & TypeScript</p>
+      <p>© 2026 Lucop1911. Built with React & TypeScript</p>
     </footer>
   );
 };
 
-function App() {
+const App: React.FC = () => {
   return (
     <div>
       <Navigation />
