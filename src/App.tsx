@@ -182,9 +182,9 @@ const ProjectsSection: React.FC = () => {
     },
     {
       name: "Quick search",
-      description: "A Rust quick search bar built for hyprland WM that integrates perfectly with the system",
+      description: "A Rust quick search bar built for Linux tiling window managers that integrates perfectly with the system",
       github: "https://github.com/Lucop1911/quick_search",
-      tags: ["Rust", "Hyprland", "Linux"]
+      tags: ["Rust", "Linux", "Tiling Window Managers']
     },
     {
       name: "CLI search tool",
