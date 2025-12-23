@@ -154,7 +154,7 @@ const AboutSection: React.FC = () => {
                 <Code2 className="w-8 h-8 text-purple-400" />
               </div>
               <h3 className="about-card-title">Technical Skills</h3>
-              <p className="about-card-text">Rust, C, Javascript, Typescript, Node.js, React, Next.js, Nw.js, Vite, Docker, MySQL/ MariaDB, SQLite, Linux (arch btw),</p>
+              <p className="about-card-text">Rust, C, Javascript, Typescript, Node.js, React, Next.js,Vue.js, Nw.js, Vite, Docker, MySQL/ MariaDB, SQLite, Linux,</p>
             </div>
             
             <div className="about-card">
