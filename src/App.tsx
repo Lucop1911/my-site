@@ -184,7 +184,7 @@ const ProjectsSection: React.FC = () => {
       name: "Quick search",
       description: "A Rust quick search bar built for Linux tiling window managers that integrates perfectly with the system",
       github: "https://github.com/Lucop1911/quick_search",
-      tags: ["Rust", "Linux", "Tiling Window Managers']
+      tags: ["Rust", "Linux", "Tiling Window Managers"]
     },
     {
       name: "CLI search tool",
