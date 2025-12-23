@@ -100,13 +100,13 @@ const HeroSection: React.FC = () => {
     <section className="hero-section">
       <div className="hero-bg"></div>
       
-      <div className="hero-content animate-fade-in">
-        <div className="hero-badge">
+      <div className="hero-content">
+        <div className="hero-badge animate-fade-in">
           <Sparkles className="w-4 h-4 text-blue-400" />
           <span className="hero-badge-text">Italian Software Developer</span>
         </div>
         
-        <h1 className="hero-title animate-gradient">
+        <h1 className="hero-title animate-gradient animate-fade-in">
           Lucop1911
         </h1>
         

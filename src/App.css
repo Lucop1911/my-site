@@ -64,14 +64,12 @@
 }
 
 .animate-gradient {
-  background-size: 300% 300% !important;
-  animation: gradient 8s ease infinite;
+  animation: gradient 8s linear infinite !important;
 }
 
 @keyframes gradient {
   0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
 .animate-scroll {
@@ -495,10 +493,19 @@
 
 .hero-title, .nav-logo, .section-title {
   background: linear-gradient(to right, #3b82f6, #60a5fa, #93c5fd, #3b82f6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  background-size: 300% auto;
+  
+  /* These three lines must exist and never be overridden */
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+
+  /* Prevent flickering during animations */
+  display: inline-block; /* Helps clipping stability */
+  will-change: transform, background-position;
+  transform: translateZ(0); 
+  filter: blur(0); /* Subtle trick to force high-quality rendering */
 }
 
 .hero-title, .section-title {
