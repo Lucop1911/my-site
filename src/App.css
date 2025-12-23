@@ -509,6 +509,8 @@
 }
 
 .hero-title, .section-title {
+  display: block;
+  width: 100%;
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
   transform: translateZ(0);
