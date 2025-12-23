@@ -115,7 +115,7 @@
 .nav-content {
   max-width: 72rem;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -260,8 +260,9 @@
   background: linear-gradient(to bottom, #111827, #1e293b);
 }
 
+/* CHANGED: All sections now use the same max-width of 72rem */
 .section-container {
-  max-width: 64rem;
+  max-width: 72rem;
   width: 100%;
 }
 
@@ -417,8 +418,9 @@
   color: #d8b4fe;
 }
 
+/* CHANGED: Contact container now uses 72rem like other sections */
 .contact-container {
-  max-width: 64rem;
+  max-width: 72rem;
   width: 100%;
   text-align: center;
 }

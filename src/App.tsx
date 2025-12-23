@@ -141,10 +141,10 @@ const AboutSection: React.FC = () => {
         <div className="about-grid">
           <div className="about-text animate-fade-in-up delay-100">
             <p>
-              Hello, i am Luca, an italian software developer who started getting into IT at 15 with html, css and python and kept learning from there.
+              I'm Luca, a software developer from Italy whose journey began at 15 with HTML, CSS, and Python. That early introduction to programming opened up a world of possibilities, and I've been passionate about learning and building ever since.
             </p>
             <p>
-              I specialize in desktop apps development but i am more than able to create websites with technologies like React for the frontend and Typescript or Rust for the backend.
+              I specialize in desktop application development, but my expertise extends across the full stack—from responsive frontends to scalable backend architectures and database design. I'm particularly drawn to systems-level programming and performance optimization, which is why I've invested significant time in languages like Rust and C. I believe in choosing the right tool for each project and continuously improving my craft through hands-on exploration.
             </p>
           </div>
           
