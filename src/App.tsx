@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
   Github,
-  //Mail,
   Twitter,
   MessageSquare,
   ExternalLink,
@@ -103,7 +102,7 @@ const HeroSection: React.FC = () => {
       
       <div className="hero-content animate-fade-in">
         <div className="hero-badge">
-          <Sparkles className="w-4 h-4 text-purple-400" />
+          <Sparkles className="w-4 h-4 text-blue-400" />
           <span className="hero-badge-text">Italian Software Developer</span>
         </div>
         
@@ -113,7 +112,7 @@ const HeroSection: React.FC = () => {
         
         <div className="hero-typing-container">
           <div className="hero-typing">
-            <Terminal className="w-8 h-8 text-purple-400" />
+            <Terminal className="w-8 h-8 text-blue-400" />
             <span>{currentText}</span>
             <span className="hero-cursor animate-pulse"></span>
           </div>
@@ -151,7 +150,7 @@ const AboutSection: React.FC = () => {
           <div className="about-cards animate-fade-in-up delay-200">
             <div className="about-card">
               <div className="about-card-icon">
-                <Code2 className="w-8 h-8 text-purple-400" />
+                <Code2 className="w-8 h-8 text-blue-400" />
               </div>
               <h3 className="about-card-title">Technical Skills</h3>
               <p className="about-card-text">Rust, C, Javascript, Typescript, Node.js, React, Next.js, Vue.js, Nw.js, Vite, Docker, MySQL/ MariaDB, SQLite, Linux</p>
@@ -159,7 +158,7 @@ const AboutSection: React.FC = () => {
             
             <div className="about-card">
               <div className="about-card-icon">
-                <Terminal className="w-8 h-8 text-pink-400" />
+                <Terminal className="w-8 h-8 text-blue-300" />
               </div>
               <h3 className="about-card-title">Experience</h3>
               <p className="about-card-text">4+ years in software development,</p>
@@ -261,7 +260,6 @@ const ContactSection: React.FC = () => {
     { icon: Github, url: "https://github.com/Lucop1911", label: "GitHub", colorClass: "hover-purple" },
     { icon: Twitter, url: "https://x.com/Luca1911_", label: "X", colorClass: "hover-blue" },
     { icon: MessageSquare, url: "https://discord.com/users/luca_1911", label: "Discord", colorClass: "hover-indigo" },
-    //{ icon: Mail, url: "mailto:your.email@example.com", label: "Email", colorClass: "hover-pink" }
   ];
 
   return (
