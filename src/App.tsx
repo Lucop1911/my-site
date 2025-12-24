@@ -198,6 +198,12 @@ const ProjectsSection: React.FC = () => {
       tags: ["Rust", "MySQL", "MariaDB", "PostgreSQL", "SQLite", "SQL"]
     },
     {
+      name: "Tech Scraper",
+      description: "A Chrome extension that helps users identify the technologies used to build websites",
+      github: "https://github.com/Lucop1911/tech-scraper",
+      tags: ["Browser-extension", "Vue.js", "Vite", "Typescript"]
+    },
+    {
       name: "My-site",
       description: "The site you are currently on, built in React",
       github: "https://github.com/Lucop1911/my-site",
