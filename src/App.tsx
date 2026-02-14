@@ -174,6 +174,12 @@ const AboutSection: React.FC = () => {
 const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
+      name: "giulio-lang",
+      description: "",
+      github: "https://github.com/Lucop1911/giulio-lang",
+      tags: ["Rust", "Interpreter", "Programming language"],
+    },
+    {
       name: "Rtop",
       description: "The famous linux htop command rewritten in Rust using ratatui library",
       github: "https://github.com/Lucop1911/rtop",
@@ -202,12 +208,6 @@ const ProjectsSection: React.FC = () => {
       description: "A Chrome extension that helps users identify the technologies used to build websites",
       github: "https://github.com/Lucop1911/tech-scraper",
       tags: ["Browser-extension", "Vue.js", "Vite", "Typescript"]
-    },
-    {
-      name: "My-site",
-      description: "The site you are currently on, built in React",
-      github: "https://github.com/Lucop1911/my-site",
-      tags: ["Typescript", "React", "Vite", "Website"]
     },
   ];
 
