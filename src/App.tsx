@@ -175,7 +175,7 @@ const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
       name: "giulio-lang",
-      description: "",
+      description: "An expressive, dynamically-typed language built in Rust, designed for simplicity with modern features like closures, structs, modules, and async execution.",
       github: "https://github.com/Lucop1911/giulio-lang",
       tags: ["Rust", "Interpreter", "Programming language"],
     },
