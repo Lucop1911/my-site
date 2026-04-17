@@ -1,15 +1,14 @@
-import { useState, useEffect } from 'react';
 import {
   Github,
   Twitter,
   MessageSquare,
   ExternalLink,
-  Code2,
-  Terminal,
-  Sparkles,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import './App.css';
+
+const currentYear = new Date().getFullYear();
+const yearsOfExperience = currentYear - 2022;
 
 interface Project {
   name: string;
@@ -22,23 +21,14 @@ interface SocialLink {
   icon: LucideIcon;
   url: string;
   label: string;
-  colorClass: string;
 }
 
 const Navigation: React.FC = () => {
-  const [scrolled, setScrolled] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleScroll = (): void => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <nav className={`nav-container ${scrolled ? 'nav-scrolled' : ''}`}>
+    <nav className="nav-container">
       <div className="nav-content">
         <a href="#" className="nav-logo">
-          Portfolio
+          Luca.
         </a>
         
         <div className="nav-links">
@@ -58,70 +48,24 @@ const Navigation: React.FC = () => {
 };
 
 const HeroSection: React.FC = () => {
-  const phrases: string[] = [
-    "19 Years Old",
-    "Full Stack Developer", 
-    "Rust Enthusiast",
-    "I use arch btw"
-  ];
-  
-  const [currentPhrase, setCurrentPhrase] = useState<number>(0);
-  const [currentText, setCurrentText] = useState<string>('');
-  const [isDeleting, setIsDeleting] = useState<boolean>(false);
-  const [typingSpeed, setTypingSpeed] = useState<number>(150);
-
-  useEffect(() => {
-    const handleTyping = (): void => {
-      const fullText: string = phrases[currentPhrase];
-      
-      if (!isDeleting) {
-        setCurrentText(fullText.substring(0, currentText.length + 1));
-        setTypingSpeed(150);
-        
-        if (currentText === fullText) {
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
-      } else {
-        setCurrentText(fullText.substring(0, currentText.length - 1));
-        setTypingSpeed(100);
-        
-        if (currentText === '') {
-          setIsDeleting(false);
-          setCurrentPhrase((currentPhrase + 1) % phrases.length);
-        }
-      }
-    };
-
-    const timer: ReturnType<typeof setTimeout> = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentPhrase, typingSpeed, phrases]);
-
   return (
     <section className="hero-section">
-      <div className="hero-bg"></div>
-      
       <div className="hero-content">
-        <div className="hero-badge animate-fade-in">
-          <Sparkles className="w-4 h-4 text-blue-400" />
-          <span className="hero-badge-text">Italian Software Developer</span>
-        </div>
+        <span className="hero-label">Software Developer</span>
         
-        <h1 className="hero-title animate-gradient animate-fade-in">
+        <h1 className="hero-title">
           Lucop1911
         </h1>
         
-        <div className="hero-typing-container">
-          <div className="hero-typing">
-            <Terminal className="w-8 h-8 text-blue-400" />
-            <span>{currentText}</span>
-            <span className="hero-cursor animate-pulse"></span>
-          </div>
-        </div>
-      </div>
-      
-      <div className="hero-scroll animate-bounce">
-        <div className="hero-scroll-indicator">
-          <div className="hero-scroll-dot animate-scroll"></div>
+        <p className="hero-subtitle">
+          Full-stack developer focused on building reliable, efficient software. 
+          I work with Rust, C, and modern web technologies to create applications 
+          that perform well and scale properly.
+        </p>
+        
+        <div className="hero-links">
+          <a href="#projects" className="hero-link">View Work</a>
+          <a href="#contact" className="hero-link">Get in Touch</a>
         </div>
       </div>
     </section>
@@ -130,39 +74,40 @@ const HeroSection: React.FC = () => {
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="section section-bg-gray">
+    <section id="about" className="section section-alt">
       <div className="section-container">
-        <div className="section-header animate-fade-in-up">
-          <h2 className="section-title">About Me</h2>
-          <div className="section-divider"></div>
+        <div className="section-header">
+          <h2 className="section-title">About</h2>
+          <div className="section-line"></div>
         </div>
         
-        <div className="about-grid">
-          <div className="about-text animate-fade-in-up delay-100">
+        <div className="about-content">
+          <div className="about-text">
             <p>
-              I'm Luca, a software developer from Italy whose journey began at 15 with HTML, CSS, and Python. That early introduction to programming opened up a world of possibilities, and I've been passionate about learning and building ever since.
+              I'm a software developer from Italy with over {yearsOfExperience} years of experience building 
+              desktop applications, backend systems, and developer tools. I started programming 
+              at 15 and have since worked with a variety of technologies across the stack.
             </p>
             <p>
-              I specialize in desktop application development, but my expertise extends across the full stack—from responsive frontends to scalable backend architectures and database design. I'm particularly drawn to systems-level programming and performance optimization, which is why I've invested significant time in languages like Rust and C. I believe in choosing the right tool for each project and continuously improving my craft through hands-on exploration.
+              My focus is on writing clean, maintainable code and building software that solves 
+              real problems. I prefer simplicity over complexity and choose the right tool for 
+              each job—whether that's Rust for performance-critical systems or TypeScript for 
+              web applications.
             </p>
           </div>
           
-          <div className="about-cards animate-fade-in-up delay-200">
-            <div className="about-card">
-              <div className="about-card-icon">
-                <Code2 className="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 className="about-card-title">Technical Skills</h3>
-              <p className="about-card-text">Rust, C, Javascript, Typescript, Node.js, React, Next.js, Vue.js, Nw.js, Vite, Docker, MySQL/ MariaDB, SQLite, Linux</p>
+          <div className="about-info">
+            <div className="about-item">
+              <div className="about-item-title">Stack</div>
+              <div className="about-item-value">Rust, C, TypeScript, Node.js, React, Python</div>
             </div>
-            
-            <div className="about-card">
-              <div className="about-card-icon">
-                <Terminal className="w-8 h-8 text-blue-300" />
-              </div>
-              <h3 className="about-card-title">Experience</h3>
-              <p className="about-card-text">4+ years in software development,</p>
-              <p className='about-card-text'>Linux user since 2021</p>
+            <div className="about-item">
+              <div className="about-item-title">Tools</div>
+              <div className="about-item-value">Linux, Docker, SQLite, PostgreSQL</div>
+            </div>
+            <div className="about-item">
+              <div className="about-item-title">Focus</div>
+              <div className="about-item-value">Desktop apps, CLI tools, backend systems</div>
             </div>
           </div>
         </div>
@@ -175,72 +120,64 @@ const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
       name: "g-lang",
-      description: "An expressive, dynamically-typed language built in Rust, designed for simplicity with modern features like closures, structs, modules, and async execution.",
+      description: "A dynamically-typed programming language built in Rust with closures, structs, modules, and async support.",
       github: "https://github.com/Lucop1911/g-lang",
-      tags: ["Rust", "Interpreter", "Programming language"],
+      tags: ["Rust", "Interpreter"],
     },
     {
       name: "Rtop",
-      description: "The famous linux htop command rewritten in Rust using ratatui library",
+      description: "A Rust reimplementation of the Linux htop command using the ratatui library for the terminal UI.",
       github: "https://github.com/Lucop1911/rtop",
-      tags: ["Rust", "Ratatui", "System Monitoring"]
+      tags: ["Rust", "TUI"],
     },
     {
-      name: "Quick search",
-      description: "A Rust quick search bar built for Linux tiling window managers that integrates perfectly with the system",
+      name: "quick_search",
+      description: "A quick search bar for Linux tiling window managers, built in Rust for minimal resource usage.",
       github: "https://github.com/Lucop1911/quick_search",
-      tags: ["Rust", "Linux", "Tiling Window Managers"]
+      tags: ["Rust", "Linux"],
     },
     {
-      name: "CLI search tool",
-      description: "Yet another CLI based tool built in C that can perform fast searches through directories and files",
-      github: "https://github.com/Lucop1911/CLI-search-tool",
-      tags: ["C", "CLI", "Lightweight"]
-    },
-    {
-      name: "Rsquid",
-      description: "A terminal based client used to connect and execute queries on MySQL, MariaDB, PostgreSQL and SQLite databases",
+      name: "rsquid",
+      description: "A terminal SQL client supporting MySQL, MariaDB, PostgreSQL, and SQLite databases.",
       github: "https://github.com/Lucop1911/rsquid",
-      tags: ["Rust", "MySQL", "MariaDB", "PostgreSQL", "SQLite", "SQL"]
+      tags: ["Rust", "SQL"],
     },
     {
-      name: "Tech Scraper",
-      description: "A Chrome extension that helps users identify the technologies used to build websites",
+      name: "CLI-search-tool",
+      description: "A fast CLI search utility written in C for searching through files and directories.",
+      github: "https://github.com/Lucop1911/CLI-search-tool",
+      tags: ["C", "CLI"],
+    },
+    {
+      name: "tech-scraper",
+      description: "A Chrome extension that identifies technologies used on websites.",
       github: "https://github.com/Lucop1911/tech-scraper",
-      tags: ["Browser-extension", "Vue.js", "Vite", "Typescript"]
+      tags: ["TypeScript", "Vue.js"],
     },
   ];
 
   return (
-    <section id="projects" className="section section-bg-gradient">
-      <div className="section-container-wide">
-        <div className="section-header animate-fade-in-up">
-          <h2 className="section-title">Featured Projects</h2>
-          <div className="section-divider"></div>
+    <section id="projects" className="section">
+      <div className="section-container">
+        <div className="section-header">
+          <h2 className="section-title">Projects</h2>
+          <div className="section-line"></div>
         </div>
         
         <div className="projects-grid">
           {projects.map((project: Project, index: number) => (
-            <div
-              key={index}
-              className="project-card animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
+            <div key={index} className="project-card">
               <div className="project-header">
-                <Github className="w-10 h-10 project-icon" />
+                <span className="project-name">{project.name}</span>
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-link"
                 >
-                  <ExternalLink className="w-5 h-5" />
+                  <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
-              
-              <h3 className="project-title">
-                {project.name}
-              </h3>
               
               <p className="project-description">
                 {project.description}
@@ -263,35 +200,34 @@ const ProjectsSection: React.FC = () => {
 
 const ContactSection: React.FC = () => {
   const socialLinks: SocialLink[] = [
-    { icon: Github, url: "https://github.com/Lucop1911", label: "GitHub", colorClass: "hover-purple" },
-    { icon: Twitter, url: "https://x.com/Luca1911_", label: "X", colorClass: "hover-blue" },
-    { icon: MessageSquare, url: "https://discord.com/users/luca_1911", label: "Discord", colorClass: "hover-indigo" },
+    { icon: Github, url: "https://github.com/Lucop1911", label: "GitHub" },
+    { icon: Twitter, url: "https://x.com/Luca1911_", label: "X" },
+    { icon: MessageSquare, url: "https://discord.com/users/luca1911__", label: "Discord" },
   ];
 
   return (
-    <section id="contact" className="section section-bg-gray">
-      <div className="contact-container">
-        <div className="section-header animate-fade-in-up">
-          <h2 className="section-title">Let's Connect</h2>
-          <div className="section-divider" style={{ margin: '0 auto' }}></div>
+    <section id="contact" className="section section-alt">
+      <div className="contact-content">
+        <div className="section-header">
+          <h2 className="section-title">Contact</h2>
+          <div className="section-line" style={{ margin: '0 auto' }}></div>
         </div>
         
-        <p className="contact-description animate-fade-in-up delay-100">
-          I'm always open to discussing new projects, creative ideas, or opportunities.
+        <p className="contact-text">
+          Feel free to reach out for collaborations, questions, or just to say hello.
         </p>
         
-        <div className="social-links">
+        <div className="contact-links">
           {socialLinks.map((link: SocialLink, index: number) => (
             <a
               key={index}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`social-link ${link.colorClass} animate-fade-in-up`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="contact-link"
             >
-              <link.icon className="w-8 h-8 social-icon" />
-              <span className="social-label">{link.label}</span>
+              <link.icon className="w-5 h-5" style={{ marginRight: '0.5rem' }} />
+              {link.label}
             </a>
           ))}
         </div>
@@ -303,7 +239,7 @@ const ContactSection: React.FC = () => {
 const Footer: React.FC = () => {
   return (
     <footer className="footer">
-      <p>© 2026 Lucop1911. Built with React & TypeScript</p>
+      <p>© {currentYear} Lucop1911</p>
     </footer>
   );
 };
