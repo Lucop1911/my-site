@@ -99,11 +99,11 @@ const AboutSection: React.FC = () => {
           <div className="about-info">
             <div className="about-item">
               <div className="about-item-title">Stack</div>
-              <div className="about-item-value">Rust, C, TypeScript, Node.js, React, Python</div>
+              <div className="about-item-value">Rust, C, TypeScript, Node.js, React, Next.js, Vue.js, Python</div>
             </div>
             <div className="about-item">
               <div className="about-item-title">Tools</div>
-              <div className="about-item-value">Linux, Docker, SQLite, PostgreSQL</div>
+              <div className="about-item-value">Linux, Docker, SQLite, PostgreSQL, MySQL/ MariaDB, MongoDB</div>
             </div>
             <div className="about-item">
               <div className="about-item-title">Focus</div>

@@ -13,19 +13,11 @@
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  padding: 1.25rem 0;
+  padding: 1.25rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-}
-
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
 }
 
 .nav-logo {
@@ -127,6 +119,8 @@
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
 }
 
 .section-header {
@@ -255,6 +249,8 @@
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
 }
 
 .contact-text {
